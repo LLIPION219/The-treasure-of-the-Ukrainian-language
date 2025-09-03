@@ -1,41 +1,43 @@
+/* Загальні стилі */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 0;
   /* Фонове зображення */
   background-image: url('images/fon.jpg');
-  background-size: cover;      /* фото займає весь екран */
-  background-position: center; /* центр фото */
+  background-size: cover;      
+  background-position: center; 
   background-repeat: no-repeat;
   color: #222;
-  line-height: 1.6;
+  line-height: 1.8;
+  font-size: 18px; /* збільшений шрифт */
 }
-
 
 /* Шапка */
 header {
   background: #0057b7;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 3rem; /* більший заголовок */
 }
 
 nav {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 nav a {
-  margin: 0 12px;
+  margin: 0 15px;
   color: #ffeb3b;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
+  font-size: 1.1rem;
 }
 
 nav a:hover {
@@ -45,43 +47,53 @@ nav a:hover {
 
 /* Секції */
 section {
-  padding: 40px;
+  padding: 50px 20px;
   text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.85); /* напівпрозорий фон для кращої читабельності */
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 h2 {
   color: #004080;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 2rem;
 }
 
 /* Цитати */
 .card {
   background: #f1f8ff;
-  padding: 15px;
-  margin: 10px auto;
-  max-width: 600px;
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 700px;
   border-left: 5px solid #0057b7;
-  border-radius: 5px;
+  border-radius: 10px;
   font-style: italic;
+  font-size: 1.2rem;
 }
 
 /* Факти */
 .facts-list {
   list-style: "⭐ ";
   text-align: left;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 /* Інтерактив */
 button {
-  padding: 12px 20px;
+  padding: 15px 25px;
   background: #ffd700;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: 0.3s;
+  margin-top: 15px;
 }
 
 button:hover {
@@ -92,29 +104,35 @@ button:hover {
 .symbols {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
 .symbol {
   background: #fff3cd;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 15px;
+  border-radius: 15px;
   font-size: 1.2rem;
-  width: 220px;      /* ширина блока */
-  height: 270px;     /* висота блока */
+  width: 280px;      
+  height: 400px;     
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  justify-content: flex-start;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .symbol img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover; /* обрізає зайве, щоб не спотворювалося */
+  width: 200px;      
+  height: 200px;     
+  object-fit: cover; 
   border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.symbol p {
+  text-align: center;
+  font-size: 1.1rem;
 }
 
 /* Футер */
@@ -122,8 +140,9 @@ footer {
   background: #003366;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
   margin-top: 20px;
+  font-size: 1rem;
 }
 
 footer a {
