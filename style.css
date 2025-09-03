@@ -1,72 +1,126 @@
+/* Загальні стилі */
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg, #f9f9f9, #dfefff);
+  background: linear-gradient(to bottom, #fdfdfd, #e0f7fa);
   color: #222;
+  line-height: 1.6;
 }
 
+/* Шапка */
 header {
-  background: #0044cc;
+  background: #0057b7;
   color: white;
-  padding: 20px;
   text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.2em;
+  font-size: 2.5rem;
 }
 
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 12px;
+  color: #ffeb3b;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Секції */
 section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 40px;
+  text-align: center;
 }
 
 h2 {
-  color: #0044cc;
-  margin-bottom: 15px;
+  color: #004080;
+  margin-bottom: 20px;
 }
 
-.quote {
+/* Цитати */
+.card {
+  background: #f1f8ff;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 600px;
+  border-left: 5px solid #0057b7;
+  border-radius: 5px;
   font-style: italic;
-  margin: 15px 0;
-  padding: 10px 15px;
-  border-left: 4px solid #0044cc;
-  background: #f0f6ff;
-  border-radius: 6px;
 }
 
-.fact {
-  background: #fff6cc;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 6px;
+/* Факти */
+.facts-list {
+  list-style: "⭐ ";
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
+/* Інтерактив */
 button {
-  padding: 10px 15px;
-  background: #0044cc;
-  color: white;
+  padding: 12px 20px;
+  background: #ffd700;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 1rem;
   transition: 0.3s;
 }
 
 button:hover {
-  background: #002b80;
+  background: #ffb300;
 }
 
+/* Символи */
+.symbols {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.symbol {
+  background: #fff3cd;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  min-width: 120px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.symbol img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Футер */
 footer {
-  background: #0044cc;
+  background: #003366;
   color: white;
   text-align: center;
-  padding: 10px;
-  margin-top: 40px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+footer a {
+  color: #ffeb3b;
+  margin: 0 5px;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
 }
