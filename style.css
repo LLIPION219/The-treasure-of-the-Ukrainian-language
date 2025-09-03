@@ -1,12 +1,16 @@
-/* Загальні стилі */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #fdfdfd, #e0f7fa);
+  /* Фонове зображення */
+  background-image: url('images/fon.jpg');
+  background-size: cover;      /* фото займає весь екран */
+  background-position: center; /* центр фото */
+  background-repeat: no-repeat;
   color: #222;
   line-height: 1.6;
 }
+
 
 /* Шапка */
 header {
