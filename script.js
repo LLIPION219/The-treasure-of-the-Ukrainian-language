@@ -1,3 +1,4 @@
+// Факти
 const facts = [
   "Українська мова має понад 250 000 слів.",
   "У 1934 році в Парижі українська мова посіла 2 місце за мелодійністю.",
@@ -24,3 +25,19 @@ function showFact() {
   lastFactIndex = index;
   document.getElementById("fact").innerText = facts[index];
 }
+
+// Анімація появи секцій при скролі
+const sections = document.querySelectorAll("section");
+
+function checkSections() {
+  const triggerBottom = window.innerHeight * 0.85;
+  sections.forEach(sec => {
+    const boxTop = sec.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      sec.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", checkSections);
+checkSections();

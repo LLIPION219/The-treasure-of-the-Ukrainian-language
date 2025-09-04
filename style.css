@@ -3,14 +3,33 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  /* Фонове зображення */
   background-image: url('images/fon.jpg');
   background-size: cover;      
   background-position: center; 
   background-repeat: no-repeat;
   color: #222;
   line-height: 1.8;
-  font-size: 18px; /* збільшений шрифт */
+  font-size: 18px;
+}
+
+/* Фон хвилі */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 91, 187, 0.2), transparent 70%),
+              radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.2), transparent 70%);
+  animation: waves 15s infinite linear;
+  z-index: -1;
+}
+
+@keyframes waves {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-100px, -100px); }
+  100% { transform: translate(0,0); }
 }
 
 /* Шапка */
@@ -24,7 +43,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 3rem; /* більший заголовок */
+  font-size: 3rem;
 }
 
 nav {
@@ -50,16 +69,41 @@ section {
   padding: 50px 20px;
   text-align: center;
   max-width: 1000px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.85); /* напівпрозорий фон для кращої читабельності */
+  margin: 0 auto 30px auto;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 10px;
-  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-in-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
   color: #004080;
   margin-bottom: 25px;
   font-size: 2rem;
+}
+
+/* Друкарська машинка */
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 3px solid #004080;
+  white-space: nowrap;
+  animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
 }
 
 /* Цитати */
@@ -98,6 +142,7 @@ button {
 
 button:hover {
   background: #ffb300;
+  transform: scale(1.1);
 }
 
 /* Символи */
@@ -120,11 +165,17 @@ button:hover {
   align-items: center;
   justify-content: flex-start;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.symbol:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
 
 .symbol img {
-  width: 200px;      
-  height: 200px;     
+  width: 200px;
+  height: 200px;
   object-fit: cover; 
   border-radius: 8px;
   margin-bottom: 15px;
