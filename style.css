@@ -34,45 +34,77 @@ body::before {
   100% { transform: translate(0,0); }
 }
 
-/* Шапка */
+/* Хедер */
 header {
-  background: #0057b7;
+  background: linear-gradient(135deg, #0057b7, #00aaff);
+  padding: 25px 20px;
   color: white;
   text-align: center;
-  padding: 30px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-header h1 {
-  margin: 0;
-  font-size: 3rem;
+
+/* Логотип та заголовок */
+.logo-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
-nav {
-  margin-top: 15px;
+.logo {
+  width: 60px;
+  height: 60px;
 }
-nav a {
-  margin: 0 15px;
-  color: #ffeb3b;
-  text-decoration: none;
+#typing-title {
+  font-size: 2.5rem;
   font-weight: bold;
-  transition: 0.3s;
-  font-size: 1.1rem;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  overflow: hidden;
+  padding-right: 5px;
+}
+
+/* Навігаційні кнопки */
+nav {
+  margin-top: 20px;
+}
+.header-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  margin: 0 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #00cfff, #0077cc);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
   position: relative;
 }
-nav a::after {
+.header-btn::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0;
-  height: 2px;
-  background: #fff;
-  transition: width 0.4s ease;
-}
-nav a:hover::after {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
   width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.2);
+  transition: transform 0.3s ease;
+  z-index: 0;
 }
-nav a:active {
-  transform: scale(0.9);
+.header-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.header-btn:hover {
+  background: linear-gradient(145deg, #0077cc, #00cfff);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  transform: translateY(-3px);
+}
+.header-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 /* Секції */
@@ -105,16 +137,9 @@ h2 {
   white-space: nowrap;
   animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
 }
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-@keyframes blink {
-  50% { border-color: transparent }
-}
-.typing.finished {
-  border-right: none;
-}
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink { 50% { border-color: transparent } }
+.typing.finished { border-right: none; }
 
 /* Цитати */
 .card {
@@ -205,6 +230,37 @@ footer a {
   margin: 0 5px;
   text-decoration: none;
 }
-footer a:hover {
-  text-decoration: underline;
+footer a:hover { text-decoration: underline; }
+
+/* Кнопка "Назад вгору" */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, #00cfff, #0077cc);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.5s ease;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#scrollTopBtn.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#scrollTopBtn:hover {
+  background: linear-gradient(145deg, #0077cc, #00cfff);
+  transform: scale(1.2);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }

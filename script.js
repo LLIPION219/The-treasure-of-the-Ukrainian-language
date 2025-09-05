@@ -1,3 +1,4 @@
+// Масиви фактів і цитат
 const facts = [
   "Українська мова має понад 250 000 слів.",
   "У 1934 році в Парижі українська мова посіла 2 місце за мелодійністю.",
@@ -15,9 +16,8 @@ let factCount = 0;
 
 function showFact() {
   let index;
-  do {
-    index = Math.floor(Math.random() * facts.length);
-  } while (index === lastFactIndex);
+  do { index = Math.floor(Math.random() * facts.length); }
+  while (index === lastFactIndex);
   lastFactIndex = index;
   document.getElementById("fact").innerText = facts[index];
   factCount++;
@@ -36,28 +36,55 @@ const quotes = [
   "Хто думає про науку, той любить свій народ. (І. Пулюй)",
   "Без мови немає народу. (Олесь Гончар)"
 ];
+
 function showQuote() {
   const q = quotes[Math.floor(Math.random() * quotes.length)];
   document.getElementById("quoteOutput").innerText = q;
 }
 
-// Анімація появи секцій
-const sections = document.querySelectorAll("section");
+// Друкарська машинка
+const titleText = "Українська мова — скарб нації 🇺🇦";
+let i = 0;
+function typeWriter() {
+  const el = document.getElementById("typing-title");
+  if (i < titleText.length) {
+    el.textContent += titleText.charAt(i);
+    i++;
+    setTimeout(typeWriter, 100);
+  } else {
+    el.style.borderRight = "none";
+  }
+}
+
+// Анімація секцій при скролі
 function checkSections() {
+  const sections = document.querySelectorAll("section");
   const triggerBottom = window.innerHeight * 0.85;
   sections.forEach(sec => {
     const boxTop = sec.getBoundingClientRect().top;
-    if (boxTop < triggerBottom) {
-      sec.classList.add("visible");
-    }
+    if (boxTop < triggerBottom) sec.classList.add("visible");
   });
 }
-window.addEventListener("scroll", checkSections);
-checkSections();
 
-// Прибрати курсор після завершення typing
-document.querySelectorAll(".typing").forEach(el => {
-  el.addEventListener("animationend", () => {
-    el.classList.add("finished");
+// Кнопка "Назад вгору"
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+function handleScrollBtn() {
+  if (window.scrollY > 400) {
+    scrollTopBtn.classList.add("show");
+  } else {
+    scrollTopBtn.classList.remove("show");
+  }
+}
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  typeWriter();
+  checkSections();
+  window.addEventListener("scroll", () => {
+    checkSections();
+    handleScrollBtn();
   });
 });
