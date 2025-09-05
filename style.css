@@ -1,11 +1,14 @@
 /* Загальні стилі */
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-image: url('images/fon.jpg');
-  background-size: cover;      
-  background-position: center; 
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   color: #222;
   line-height: 1.8;
@@ -25,7 +28,6 @@ body::before {
   animation: waves 15s infinite linear;
   z-index: -1;
 }
-
 @keyframes waves {
   0% { transform: translate(0,0); }
   50% { transform: translate(-100px, -100px); }
@@ -40,16 +42,13 @@ header {
   padding: 30px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
 header h1 {
   margin: 0;
   font-size: 3rem;
 }
-
 nav {
   margin-top: 15px;
 }
-
 nav a {
   margin: 0 15px;
   color: #ffeb3b;
@@ -57,11 +56,23 @@ nav a {
   font-weight: bold;
   transition: 0.3s;
   font-size: 1.1rem;
+  position: relative;
 }
-
-nav a:hover {
-  color: #fff;
-  text-decoration: underline;
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.4s ease;
+}
+nav a:hover::after {
+  width: 100%;
+}
+nav a:active {
+  transform: scale(0.9);
 }
 
 /* Секції */
@@ -76,12 +87,10 @@ section {
   transform: translateY(40px);
   transition: all 0.8s ease-in-out;
 }
-
 section.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 h2 {
   color: #004080;
   margin-bottom: 25px;
@@ -96,14 +105,15 @@ h2 {
   white-space: nowrap;
   animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
 }
-
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
-
 @keyframes blink {
   50% { border-color: transparent }
+}
+.typing.finished {
+  border-right: none;
 }
 
 /* Цитати */
@@ -139,7 +149,6 @@ button {
   transition: 0.3s;
   margin-top: 15px;
 }
-
 button:hover {
   background: #ffb300;
   transform: scale(1.1);
@@ -152,14 +161,13 @@ button:hover {
   gap: 30px;
   flex-wrap: wrap;
 }
-
 .symbol {
   background: #fff3cd;
   padding: 15px;
   border-radius: 15px;
   font-size: 1.2rem;
-  width: 280px;      
-  height: 400px;     
+  width: 280px;
+  height: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,20 +175,17 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
 .symbol:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
-
 .symbol img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover; 
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: 15px;
 }
-
 .symbol p {
   text-align: center;
   font-size: 1.1rem;
@@ -195,13 +200,11 @@ footer {
   margin-top: 20px;
   font-size: 1rem;
 }
-
 footer a {
   color: #ffeb3b;
   margin: 0 5px;
   text-decoration: none;
 }
-
 footer a:hover {
   text-decoration: underline;
 }
